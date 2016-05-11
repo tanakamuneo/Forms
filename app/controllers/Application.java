@@ -17,6 +17,33 @@ public class Application extends Controller {
 
 	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
 	//メソッド1 初期値 ユーザ入力前
     public static Result index() {
 
