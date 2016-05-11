@@ -1,0 +1,10 @@
+@(elements: helper.FieldElements)
+
+<dl class=" " id="name_field">
+<dt><label for="name">@elements.label</label></dt>
+<dd>@elements.input</dd>
+@if(elements.hasErrors){
+	<dd class="error">@elements.errors(elements.lang).mkString(", ")</dd>
+}
+<dd class="info">@elements.infos</dd>
+</dl>

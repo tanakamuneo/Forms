@@ -1,0 +1,31 @@
+@(value:String, myForm: Form[models.MyForm])
+
+    @main("Display") {
+	
+	@*ページ最上部*@
+	<h2>Hello Forms!</h2>
+
+	@*フォーム送信結果表示*@
+	<p>@value</p>
+
+
+	@*フォームヘルパー*@
+	@helper.form(action = routes.Application.send){
+
+		@(helper.inputText(myForm("name"),'_label->"あなたの名前",'_help->"必須",'_error->"This field is required")(errorProcess, implicitly[Lang]))
+		@helper.inputPassword(myForm("password"),args='_label->"パスワード",'_help->"パスワードを入力してください")
+		@helper.checkbox(myForm("check"))
+		@helper.inputRadioGroup(myForm("radio"),options = helper.options(("windows","MS-Windows"),("mac","Mac OS X"),("linux","Linux")))
+		@helper.select(myForm("select"),args='size->"3",options=helper.options(("jpn","日本"),("usa","アメリカ"),("uk","イギリス")))
+		@helper.textarea(myForm("textarea"),args='rows->3,'cols->30,'_label->"area")
+		@helper.inputDate(myForm("Date"))
+		@helper.inputText(myForm("inputNum"), args='type->"number", '_label->"inputNum", 'max->100, 'min->10, '_help->"*最小値10, 最大値100")
+
+
+
+		@*actionとmethodはここで指定しない*@
+		<input type="submit">
+	}
+
+}
+
